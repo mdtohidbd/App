@@ -37,6 +37,7 @@ export default function RootLayout() {
             <Stack.Screen name="onboarding" />
             <Stack.Screen name="auth" options={{ animation: 'fade' }} />
             <Stack.Screen name="(tabs)" />
+            <Stack.Screen name="(admin)" />
             <Stack.Screen name="checkout" options={{ presentation: 'modal', animation: 'slide_from_bottom' }} />
             <Stack.Screen name="wishlist" />
             <Stack.Screen name="product/[id]" options={{ presentation: 'transparentModal', animation: 'fade' }} />

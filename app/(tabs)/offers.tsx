@@ -4,7 +4,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import tw from '@/lib/tailwind';
 import { useShop } from '@/store/useShop';
-import { products } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import { Tag, Copy, Check, Percent, Sparkles } from 'lucide-react-native';
 
@@ -81,6 +80,7 @@ export default function OffersScreen() {
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const products = useShop(s => s.products);
   
   // Filter products that have an oldPrice or are explicitly badged as "SALE"
   const saleProducts = products.filter(p => p.oldPrice || p.badge === 'SALE');

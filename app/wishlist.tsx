@@ -5,10 +5,9 @@ import tw from '@/lib/tailwind';
 import { useShop } from '@/store/useShop';
 import ProductCard from '@/components/ProductCard';
 import { Heart, ArrowLeft } from 'lucide-react-native';
-import { products } from '@/data/products';
 
 export default function WishlistScreen() {
-  const { wishlist } = useShop();
+  const { wishlist, products } = useShop();
   const router = useRouter();
 
   useEffect(() => {

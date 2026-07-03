@@ -522,65 +522,6 @@ export default function OrdersScreen() {
             </View>
           </View>
 
-          {/* Order Action Simulator (Admin/User Controls) */}
-          {order?.status !== 'cancelled' && order?.status !== 'delivered' && (
-            <View style={[tw`rounded-3xl p-5 border mb-6 ${themeCard}`, tw`${themeBorder}`]}>
-              <Text style={tw`text-base font-black mb-3 ${themeTextPrimary}`}>Order Management</Text>
-              
-              <View style={tw`flex-row flex-wrap gap-2`}>
-                {order?.status === 'placed' && (
-                  <TouchableOpacity 
-                    onPress={() => {
-                      updateOrderStatus(order.id, 'confirmed');
-                      setSelectedOrder({ ...order, status: 'confirmed' });
-                      triggerToast("Order accepted by store.");
-                    }}
-                    style={tw`bg-blue-500/10 border border-blue-500/20 px-4 py-2.5 rounded-full`}
-                  >
-                    <Text style={tw`text-blue-500 font-bold text-sm`}>Accept Order (Admin)</Text>
-                  </TouchableOpacity>
-                )}
-                {order?.status === 'confirmed' && (
-                  <TouchableOpacity 
-                    onPress={() => {
-                      updateOrderStatus(order.id, 'shipped');
-                      setSelectedOrder({ ...order, status: 'shipped' });
-                      triggerToast("Order has been shipped.");
-                    }}
-                    style={tw`bg-amber-500/10 border border-amber-500/20 px-4 py-2.5 rounded-full`}
-                  >
-                    <Text style={tw`text-amber-500 font-bold text-sm`}>Ship Order (Admin)</Text>
-                  </TouchableOpacity>
-                )}
-                {order?.status === 'shipped' && (
-                  <TouchableOpacity 
-                    onPress={() => {
-                      updateOrderStatus(order.id, 'out_for_delivery');
-                      setSelectedOrder({ ...order, status: 'out_for_delivery' });
-                      triggerToast("Order is out for delivery.");
-                    }}
-                    style={tw`bg-emerald-500/10 border border-emerald-500/20 px-4 py-2.5 rounded-full`}
-                  >
-                    <Text style={tw`text-emerald-500 font-bold text-sm`}>Out for Delivery (Courier)</Text>
-                  </TouchableOpacity>
-                )}
-                {order?.status === 'out_for_delivery' && (
-                  <TouchableOpacity 
-                    onPress={() => {
-                      updateOrderStatus(order.id, 'delivered');
-                      setSelectedOrder({ ...order, status: 'delivered' });
-                      triggerToast("Order has been delivered successfully!");
-                    }}
-                    style={tw`bg-green-500/10 border border-green-500/20 px-4 py-2.5 rounded-full flex-row items-center w-full justify-center mt-1`}
-                  >
-                    <CheckCircle2 size={18} color="#22c55e" style={tw`mr-2`} />
-                    <Text style={tw`text-green-500 font-black text-base`}>Confirm Receipt (Accept)</Text>
-                  </TouchableOpacity>
-                )}
-              </View>
-            </View>
-          )}
-
           {/* Need Help Action */}
           <TouchableOpacity style={[tw`flex-row justify-center items-center py-4 rounded-2xl border shadow-sm`, tw`${themeCard} ${themeBorder}`]}>
             <SupportIcon size={16} style={tw`mr-2 ${themeTextMuted}`} />

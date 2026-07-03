@@ -3,7 +3,8 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams } from 'expo-router';
 import tw from '@/lib/tailwind';
-import { categories, products } from '@/data/products';
+import { categories } from '@/data/products';
+import { useShop } from '@/store/useShop';
 import ProductCard from '@/components/ProductCard';
 import { ShoppingBag } from 'lucide-react-native';
 
@@ -11,6 +12,7 @@ export default function CategoriesScreen() {
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams<{ categoryId?: string }>();
   const [active, setActive] = useState<string>("all");
+  const products = useShop(s => s.products);
 
   React.useEffect(() => {
     if (params.categoryId) {

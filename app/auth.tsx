@@ -54,8 +54,13 @@ export default function AuthScreen() {
   const handleAuth = () => {
     if (!emailOrPhone || !password) return;
     // Call the login function from store
-    login(emailOrPhone, isLogin ? undefined : name);
-    router.replace('/(tabs)');
+    login(emailOrPhone, password, isLogin ? undefined : name);
+    
+    if (emailOrPhone === 'admin@stylofy.com' && password === 'admin') {
+      router.replace('/(admin)');
+    } else {
+      router.replace('/(tabs)');
+    }
   };
 
   // Theme Constants

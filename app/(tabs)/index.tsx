@@ -7,9 +7,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
 import tw from '@/lib/tailwind';
-import { banners, categories, products, flashSale } from '@/data/products';
+import { banners, categories, flashSale } from '@/data/products';
 import { ChevronRight, Zap, Bell, Search, X } from 'lucide-react-native';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useShop } from '@/store/useShop';
 import ProductCard from '@/components/ProductCard';
 import { useCountdown } from '@/hooks/useCountdown';
 
@@ -27,6 +28,8 @@ export default function HomeScreen() {
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
   
+  const products = useShop(s => s.products);
+
   const { h, m, s } = useCountdown(5); // 5 hours countdown
   const [searchQuery, setSearchQuery] = useState('');
 

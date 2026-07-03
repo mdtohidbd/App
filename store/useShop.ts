@@ -55,6 +55,7 @@ type ShopState = {
   cart: CartItem[];
   wishlist: string[];
   orders: Order[];
+  products: Product[];
   coupon?: { code: string; off: number };
   addresses: ShippingAddress[];
   paymentMethods: SavedPaymentMethod[];
@@ -71,6 +72,11 @@ type ShopState = {
   ) => Order;
   cancelOrder: (id: string) => void;
   updateOrderStatus: (id: string, status: OrderStatus) => void;
+  
+  // Products Actions
+  addProduct: (product: Omit<Product, 'id'>) => void;
+  updateProduct: (id: string, product: Partial<Product>) => void;
+  deleteProduct: (id: string) => void;
   
   // Addresses Actions
   addAddress: (addr: Omit<ShippingAddress, 'id'>) => void;
@@ -132,6 +138,7 @@ export const useShop = create<ShopState>()(
       cart: [],
       wishlist: [],
       orders: SEEDED_ORDERS,
+      products: products, // Initialized with static products from data/products.ts
       addresses: [
         {
           id: 'addr-1',
@@ -248,6 +255,25 @@ export const useShop = create<ShopState>()(
           orders: get().orders.map(order => 
             order.id === id ? { ...order, status } : order
           )
+        });
+      },
+      
+      // Products Actions
+      addProduct: (product) => {
+        const randId = `P-${Math.floor(1000 + Math.random() * 9000)}`;
+        const newProduct = { ...product, id: randId } as Product;
+        set({ products: [newProduct, ...get().products] });
+      },
+      updateProduct: (id, updatedFields) => {
+        set({
+          products: get().products.map(p => 
+            p.id === id ? { ...p, ...updatedFields } : p
+          )
+        });
+      },
+      deleteProduct: (id) => {
+        set({
+          products: get().products.filter(p => p.id !== id)
         });
       },
 

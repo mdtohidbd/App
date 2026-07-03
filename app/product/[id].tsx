@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, SafeAreaView, Platform, Animated, Dimensions } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import tw from '@/lib/tailwind';
-import { getProduct } from '@/data/products';
 import { useShop } from '@/store/useShop';
 import { ChevronLeft, Heart, Star, Minus, Plus, ShoppingBag, CheckCircle2, Check } from 'lucide-react-native';
 import { useColorScheme } from '@/hooks/use-color-scheme';
@@ -11,7 +10,7 @@ const { height } = Dimensions.get('window');
 
 export default function ProductDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const product = getProduct(id);
+  const product = useShop(s => s.products.find(p => p.id === id));
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
   const themeBrandColor = '#4E7661'; // Blushify Sage Green
@@ -245,16 +244,16 @@ export default function ProductDetailsScreen() {
       <View style={[tw`bg-white dark:bg-black px-5 pt-4 border-t border-gray-100 dark:border-gray-900 flex-row gap-3`, { paddingBottom: Platform.OS === 'ios' ? 32 : 16 }]}>
         <TouchableOpacity 
           onPress={add}
-          style={tw`flex-1 flex-row items-center justify-center bg-gray-100 dark:bg-[#222] rounded-[20px] py-4 border border-gray-200 dark:border-gray-800`}
+          style={tw`flex-1 flex-row items-center justify-center bg-[#4E7661]/10 rounded-[20px] py-4 border border-[#4E7661]/20`}
         >
-          <ShoppingBag size={18} color={tw.color('dark:text-white') || '#000'} style={tw`mr-2`} />
-          <Text style={tw`text-base font-bold text-black dark:text-white`}>Add to Cart</Text>
+          <ShoppingBag size={18} color="#4E7661" style={tw`mr-2`} />
+          <Text style={tw`text-base font-bold text-[#4E7661]`}>Add to Cart</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           onPress={buy}
-          style={tw`flex-1 items-center justify-center bg-black dark:bg-white rounded-[20px] py-4 shadow-lg shadow-black/30 dark:shadow-white/20`}
+          style={tw`flex-1 items-center justify-center bg-[#4E7661] rounded-[20px] py-4 shadow-lg shadow-[#4E7661]/30`}
         >
-          <Text style={tw`text-base font-bold text-white dark:text-black`}>Buy Now</Text>
+          <Text style={tw`text-base font-bold text-white`}>Buy Now</Text>
         </TouchableOpacity>
       </View>
     </View>
