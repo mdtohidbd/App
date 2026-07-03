@@ -28,12 +28,12 @@ export default function AdminProducts() {
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
 
-  const themeBg = isDark ? 'bg-[#0A0D0B]' : 'bg-[#F4F7F5]';
-  const themeCard = isDark ? 'bg-[#131815]' : 'bg-white';
-  const themeText = isDark ? 'text-white' : 'text-gray-900';
-  const themeTextMuted = isDark ? 'text-gray-400' : 'text-gray-500';
-  const themeBorder = isDark ? 'border-[#222E28]' : 'border-[#D9E2DE]';
-  const themeInput = isDark ? 'bg-[#1a201d] text-white' : 'bg-gray-50 text-gray-900';
+  const themeBg = isDark ? 'bg-[#191514]' : 'bg-[#FAF7F2]';
+  const themeCard = isDark ? 'bg-[#261E1D]' : 'bg-white';
+  const themeText = isDark ? 'text-[#EFEBE9]' : 'text-[#3E2723]';
+  const themeTextMuted = isDark ? 'text-[#A1887F]' : 'text-[#8D6E63]';
+  const themeBorder = isDark ? 'border-[#3E2723]' : 'border-[#EFEBE9]';
+  const themeInput = isDark ? 'bg-[#3E2723] text-[#EFEBE9]' : 'bg-[#F5F0E6] text-[#3E2723]';
 
   const resetForm = () => {
     setName('');
@@ -55,7 +55,7 @@ export default function AdminProducts() {
     setName(product.name);
     setBrand(product.brand);
     setPrice(product.price.toString());
-    setImage(product.image || product.images?.[0] || '');
+    setImage(product.images?.[0] || '');
     setCategory(product.category);
     setDescription(product.description || '');
     setModalVisible(true);
@@ -82,7 +82,6 @@ export default function AdminProducts() {
       name,
       brand,
       price: parseFloat(price) || 0,
-      image,
       images: image ? [image] : [],
       category: category || 'General',
       description,
@@ -121,7 +120,7 @@ export default function AdminProducts() {
         {products.map((product) => (
           <View key={product.id} style={[tw`flex-row p-4 rounded-2xl mb-4 shadow-sm items-center`, tw`${themeCard}`]}>
             <Image 
-              source={{ uri: product.image || product.images?.[0] || 'https://via.placeholder.com/150' }} 
+              source={{ uri: product.images?.[0] || 'https://via.placeholder.com/150' }} 
               style={tw`w-20 h-20 rounded-xl bg-gray-100 mr-4`}
               resizeMode="cover"
             />

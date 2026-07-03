@@ -1,8 +1,10 @@
 > **BrainSync Context Pumper** 🧠
-> Dynamically loaded for active file: `TECH_STACK_PRESENTATION.md` (Domain: **Generic Logic**)
+> Dynamically loaded for active file: `app\onboarding.tsx` (Domain: **Frontend (React/UI)**)
 
-### 📐 Generic Logic Conventions & Fixes
-- **[what-changed] Updated configuration Update**: - - `[ ]` Update theme configuration in [theme.ts](file:///e:/MY-Portfolio/tmi/my-app/constants/theme.ts) to match `#4E7661` (Blushify sage green)
-+ - `[x]` Update theme configuration in [theme.ts](file:///e:/MY-Portfolio/tmi/my-app/constants/theme.ts) to match `#4E7661` (Blushify sage green)
-- - `[ ]` Refactor [checkout.tsx](file:///e:/MY-Portfolio/tmi/my-app/app/checkout.tsx):
-+ - `[/]` Refactor [checkout.tsx](file:///e:/MY-Portfolio/tmi/my-app/app/checkout.tsx):
+### 📐 Frontend (React/UI) Conventions & Fixes
+- **[what-changed] 🟢 Edited app/checkout.tsx (17 changes, 98min)**: Active editing session on app/checkout.tsx.
+17 content changes over 98 minutes.
+- **[what-changed] 🟢 Edited app/(admin)/products.tsx (6 changes, 14min)**: Active editing session on app/(admin)/products.tsx.
+6 content changes over 14 minutes.
+- **[what-changed] 🟢 Edited app/(admin)/_layout.tsx (14 changes, 58min)**: Active editing session on app/(admin)/_layout.tsx.
+14 content changes over 58 minutes.

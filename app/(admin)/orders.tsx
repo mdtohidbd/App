@@ -26,11 +26,11 @@ export default function AdminOrders() {
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const themeBg = isDark ? 'bg-[#0A0D0B]' : 'bg-[#F4F7F5]';
-  const themeCard = isDark ? 'bg-[#131815]' : 'bg-white';
-  const themeText = isDark ? 'text-white' : 'text-gray-900';
-  const themeTextMuted = isDark ? 'text-gray-400' : 'text-gray-500';
-  const themeBorder = isDark ? 'border-[#222E28]' : 'border-[#D9E2DE]';
+  const themeBg = isDark ? 'bg-[#191514]' : 'bg-[#FAF7F2]';
+  const themeCard = isDark ? 'bg-[#261E1D]' : 'bg-white';
+  const themeText = isDark ? 'text-[#EFEBE9]' : 'text-[#3E2723]';
+  const themeTextMuted = isDark ? 'text-[#A1887F]' : 'text-[#8D6E63]';
+  const themeBorder = isDark ? 'border-[#3E2723]' : 'border-[#EFEBE9]';
 
   const handleStatusChange = (status: OrderStatus) => {
     if (selectedOrder) {

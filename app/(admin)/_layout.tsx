@@ -14,13 +14,13 @@ export default function AdminTabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarButton: HapticTab,
-        tabBarActiveTintColor: isDark ? '#ffffff' : '#000000',
-        tabBarInactiveTintColor: '#9ca3af',
+        tabBarActiveTintColor: isDark ? '#D84315' : '#8E3200', // Batik Rust
+        tabBarInactiveTintColor: isDark ? '#8D6E63' : '#A1887F',
         tabBarShowLabel: true,
         tabBarStyle: {
           position: 'absolute',
           borderTopWidth: 1,
-          borderTopColor: isDark ? '#222' : '#f3f4f6',
+          borderTopColor: isDark ? '#3E2723' : '#EFEBE9',
           elevation: 10,
           shadowColor: '#000',
           shadowOffset: { width: 0, height: -5 },
@@ -28,7 +28,7 @@ export default function AdminTabLayout() {
           shadowRadius: 10,
           height: Platform.OS === 'ios' ? 88 : 68,
           paddingBottom: Platform.OS === 'ios' ? 28 : 10,
-          backgroundColor: isDark ? '#1a1a1a' : '#fafafa', // Slightly different bg to distinguish admin
+          backgroundColor: isDark ? '#261E1D' : '#FAF7F2', // Batik Card bg
         },
       }}>
       <Tabs.Screen

@@ -20,10 +20,10 @@ export default function AdminDashboard() {
 
   const totalProducts = useShop((s) => s.products.length);
 
-  const themeBg = isDark ? 'bg-[#0A0D0B]' : 'bg-[#F4F7F5]';
-  const themeCard = isDark ? 'bg-[#131815]' : 'bg-white';
-  const themeText = isDark ? 'text-white' : 'text-gray-900';
-  const themeTextMuted = isDark ? 'text-gray-400' : 'text-gray-500';
+  const themeBg = isDark ? 'bg-[#191514]' : 'bg-[#FAF7F2]';
+  const themeCard = isDark ? 'bg-[#261E1D]' : 'bg-white';
+  const themeText = isDark ? 'text-[#EFEBE9]' : 'text-[#3E2723]';
+  const themeTextMuted = isDark ? 'text-[#A1887F]' : 'text-[#8D6E63]';
 
   const StatCard = ({ title, value, icon: Icon, color }: { title: string, value: string, icon: any, color: string }) => (
     <View style={[tw`p-5 rounded-2xl shadow-sm mb-4 w-[48%]`, tw`${themeCard}`]}>
@@ -51,25 +51,25 @@ export default function AdminDashboard() {
             title="Total Revenue" 
             value={`$${totalRevenue.toFixed(2)}`} 
             icon={DollarSign} 
-            color="#4E7661" 
+            color="#8E3200" 
           />
           <StatCard 
             title="Total Orders" 
             value={totalOrders.toString()} 
             icon={ShoppingBag} 
-            color="#3b82f6" 
+            color="#283593" 
           />
           <StatCard 
             title="Pending Orders" 
             value={pendingOrders.toString()} 
             icon={Activity} 
-            color="#eab308" 
+            color="#F9A825" 
           />
           <StatCard 
             title="Total Products" 
             value={totalProducts.toString()} 
             icon={Package} 
-            color="#8b5cf6" 
+            color="#2E7D32" 
           />
         </View>
 
@@ -77,8 +77,8 @@ export default function AdminDashboard() {
           <Text style={[tw`text-lg font-bold mb-4`, tw`${themeText}`]}>Recent Activity</Text>
           {orders.slice(0, 3).map((order, index) => (
             <View key={order.id} style={[tw`flex-row items-center py-3`, index !== orders.slice(0, 3).length - 1 && tw`border-b border-gray-100 dark:border-[#222E28]`]}>
-              <View style={[tw`w-10 h-10 rounded-full items-center justify-center mr-4 bg-[#4E7661] bg-opacity-20`]}>
-                <ShoppingBag size={18} color="#4E7661" />
+              <View style={[tw`w-10 h-10 rounded-full items-center justify-center mr-4 bg-[#8E3200] bg-opacity-20`]}>
+                <ShoppingBag size={18} color="#8E3200" />
               </View>
               <View style={tw`flex-1`}>
                 <Text style={[tw`font-semibold text-base`, tw`${themeText}`]}>Order {order.id}</Text>
