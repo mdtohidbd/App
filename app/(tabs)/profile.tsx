@@ -9,7 +9,7 @@ import tw from '@/lib/tailwind';
 import { 
   Settings, ShoppingBag, CreditCard, MapPin, Bell, 
   LogOut, LogIn, ChevronRight, Moon, Heart, HelpCircle, 
-  Edit3, Camera, User, Mail, Sparkles, CheckCircle2 
+  Edit3, Camera, User, Mail, Sparkles, CheckCircle2, Shield 
 } from 'lucide-react-native';
 import { useAuth } from '@/store/useAuth';
 import * as ImagePicker from 'expo-image-picker';
@@ -248,6 +248,30 @@ export default function ProfileScreen() {
 
         {/* Sections */}
         <View style={tw`px-5`}>
+          
+          {/* Admin Panel Entry */}
+          {user?.role === 'admin' && (
+            <View style={tw`mb-6`}>
+              <Text style={tw`text-gray-500 dark:text-gray-400 font-bold tracking-wider text-xs uppercase mb-3 ml-2`}>Administration</Text>
+              <View style={[tw`rounded-3xl overflow-hidden border shadow-sm`, tw`${themeCard} ${themeBorder}`]}>
+                <TouchableOpacity 
+                  onPress={() => router.replace('/(admin)')}
+                  style={tw`flex-row items-center justify-between p-4`}
+                >
+                  <View style={tw`flex-row items-center`}>
+                    <View style={[tw`w-11 h-11 rounded-full items-center justify-center mr-4 border`, tw`${themeCard} ${themeBorder}`, { backgroundColor: `${themeBrandColor}15` }]}>
+                      <Shield size={20} color={themeBrandColor} />
+                    </View>
+                    <View style={tw`flex-1`}>
+                      <Text style={tw`text-base font-bold mb-0.5 ${themeTextPrimary}`}>Admin Dashboard</Text>
+                      <Text style={tw`text-xs ${themeTextMuted}`}>Manage products, orders, and settings</Text>
+                    </View>
+                  </View>
+                  <ChevronRight size={18} color="#9ca3af" />
+                </TouchableOpacity>
+              </View>
+            </View>
+          )}
           
           {/* App Settings Section */}
           <View style={tw`mb-6`}>

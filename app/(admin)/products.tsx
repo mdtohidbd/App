@@ -105,7 +105,12 @@ export default function AdminProducts() {
     <View style={[tw`flex-1`, tw`${themeBg}`]}>
       <View style={[tw`px-6 pb-4 flex-row justify-between items-end border-b`, tw`${themeBorder}`, { paddingTop: Math.max(insets.top, 20) }]}>
         <View>
-          <Text style={[tw`text-3xl font-extrabold mt-2`, tw`${themeText}`]}>Products</Text>
+          <View style={tw`flex-row mb-1`}>
+            <View style={tw`bg-[#4E7661] px-2.5 py-0.5 rounded-full`}>
+              <Text style={tw`text-white text-[10px] font-black uppercase tracking-wider`}>Admin</Text>
+            </View>
+          </View>
+          <Text style={[tw`text-3xl font-extrabold`, tw`${themeText}`]}>Products</Text>
           <Text style={[tw`text-base mt-1`, tw`${themeTextMuted}`]}>Manage inventory</Text>
         </View>
         <TouchableOpacity 
@@ -133,16 +138,16 @@ export default function AdminProducts() {
               </View>
               <Text style={[tw`font-bold text-lg text-[#4E7661]`]}>${product.price.toFixed(2)}</Text>
             </View>
-            <View style={tw`justify-between h-full py-1`}>
+            <View style={tw`flex-col items-center justify-center pl-2`}>
               <TouchableOpacity 
                 onPress={() => openEditModal(product)}
-                style={[tw`p-2 rounded-full mb-2`, { backgroundColor: '#4E766120' }]}
+                style={[tw`p-2.5 rounded-full mb-2`, { backgroundColor: '#4E766120' }]}
               >
                 <Edit2 size={16} color="#4E7661" />
               </TouchableOpacity>
               <TouchableOpacity 
                 onPress={() => handleDelete(product.id)}
-                style={[tw`p-2 rounded-full`, { backgroundColor: '#ef444420' }]}
+                style={[tw`p-2.5 rounded-full`, { backgroundColor: '#ef444420' }]}
               >
                 <Trash2 size={16} color="#ef4444" />
               </TouchableOpacity>

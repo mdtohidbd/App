@@ -141,7 +141,12 @@ export default function AdminSettings() {
   return (
     <View style={[tw`flex-1`, tw`${themeBg}`]}>
       <View style={[tw`px-6 pb-4 border-b`, tw`${themeBorder}`, { paddingTop: Math.max(insets.top, 20) }]}>
-        <Text style={[tw`text-3xl font-extrabold mt-2`, tw`${themeText}`]}>Settings</Text>
+        <View style={tw`flex-row mb-1`}>
+          <View style={tw`bg-[#8E3200] px-2.5 py-0.5 rounded-full`}>
+            <Text style={tw`text-white text-[10px] font-black uppercase tracking-wider`}>Admin</Text>
+          </View>
+        </View>
+        <Text style={[tw`text-3xl font-extrabold`, tw`${themeText}`]}>Settings</Text>
       </View>
 
       <ScrollView contentContainerStyle={tw`p-6 pb-24`} showsVerticalScrollIndicator={false}>
@@ -164,6 +169,7 @@ export default function AdminSettings() {
         
         <Text style={[tw`text-xs font-black uppercase tracking-widest mb-3 ml-2 mt-6`, tw`${themeTextMuted}`]}>Store</Text>
         <SettingItem icon={Store} title="Store Details" onPress={() => setActiveModal('store')} />
+        <SettingItem icon={Store} title="Switch to Customer Mode" onPress={() => router.replace('/(tabs)')} />
         <SettingItem icon={Truck} title="Delivery & Shipping" onPress={() => triggerToast('Shipping synced with API.')} />
 
         <Text style={[tw`text-xs font-black uppercase tracking-widest mb-3 ml-2 mt-6`, tw`${themeTextMuted}`]}>Preferences</Text>

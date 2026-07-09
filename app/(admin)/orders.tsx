@@ -52,7 +52,12 @@ export default function AdminOrders() {
   return (
     <View style={[tw`flex-1`, tw`${themeBg}`]}>
       <View style={[tw`px-6 pb-4 border-b`, tw`${themeBorder}`, { paddingTop: Math.max(insets.top, 20) }]}>
-        <Text style={[tw`text-3xl font-extrabold mt-2`, tw`${themeText}`]}>Orders</Text>
+        <View style={tw`flex-row mb-1`}>
+          <View style={tw`bg-[#283593] px-2.5 py-0.5 rounded-full`}>
+            <Text style={tw`text-white text-[10px] font-black uppercase tracking-wider`}>Admin</Text>
+          </View>
+        </View>
+        <Text style={[tw`text-3xl font-extrabold`, tw`${themeText}`]}>Orders</Text>
         <Text style={[tw`text-base mt-1`, tw`${themeTextMuted}`]}>Manage customer orders</Text>
       </View>
 

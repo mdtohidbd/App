@@ -42,7 +42,12 @@ export default function AdminDashboard() {
         showsVerticalScrollIndicator={false}
       >
         <View style={tw`mb-8 mt-2`}>
-          <Text style={[tw`text-3xl font-extrabold mb-2`, tw`${themeText}`]}>Dashboard</Text>
+          <View style={tw`flex-row mb-2`}>
+            <View style={tw`bg-[#8E3200] px-3.5 py-1 rounded-full`}>
+              <Text style={tw`text-white text-xs font-black uppercase tracking-widest`}>Admin Control Panel</Text>
+            </View>
+          </View>
+          <Text style={[tw`text-3xl font-extrabold mb-1`, tw`${themeText}`]}>Dashboard</Text>
           <Text style={[tw`text-base`, tw`${themeTextMuted}`]}>Overview of your store</Text>
         </View>
 
