@@ -125,7 +125,7 @@ export default function AdminProducts() {
         {products.map((product) => (
           <View key={product.id} style={[tw`flex-row p-4 rounded-2xl mb-4 shadow-sm items-center`, tw`${themeCard}`]}>
             <Image 
-              source={{ uri: product.images?.[0] || 'https://via.placeholder.com/150' }} 
+              source={product.images && product.images[0] ? (typeof product.images[0] === 'string' ? { uri: product.images[0] } : product.images[0]) : { uri: 'https://via.placeholder.com/150' }} 
               style={tw`w-20 h-20 rounded-xl bg-gray-100 mr-4`}
               resizeMode="cover"
             />

@@ -60,7 +60,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       ]}>
         <View style={tw`h-44 relative bg-gray-50 dark:bg-[#111]`}>
           <Image 
-            source={{ uri: product.images[0] }} 
+            source={typeof product.images[0] === 'string' ? { uri: product.images[0] } : product.images[0]} 
             style={tw`w-full h-full`} 
             resizeMode="cover"
           />

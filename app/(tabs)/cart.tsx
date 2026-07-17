@@ -66,7 +66,7 @@ export default function CartScreen() {
                     <Swipeable renderRightActions={() => renderRightActions(item.product.id)}>
                       <View style={tw`flex-row p-3 bg-white dark:bg-gray-900`}>
                         <View style={tw`w-24 h-28 bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden`}>
-                          <Image source={{ uri: item.product.images[0] }} style={tw`w-full h-full`} resizeMode="cover" />
+                          <Image source={typeof item.product.images[0] === 'string' ? { uri: item.product.images[0] } : item.product.images[0]} style={tw`w-full h-full`} resizeMode="cover" />
                         </View>
                         
                         <View style={tw`flex-1 ml-4 py-1 justify-between`}>

@@ -56,7 +56,7 @@ export default function CategoriesScreen() {
               onPress={() => setActive(c.id)}
             >
               <View style={tw`h-16 w-16 rounded-2xl overflow-hidden bg-gray-100 mb-1 border-2 ${active === c.id ? 'border-black' : 'border-transparent'}`}>
-                <Image source={{ uri: c.img }} style={tw`w-full h-full`} />
+                <Image source={typeof c.img === 'string' ? { uri: c.img } : c.img} style={tw`w-full h-full`} />
               </View>
               <Text style={tw`text-[11px] text-gray-500`}>{c.name}</Text>
             </TouchableOpacity>

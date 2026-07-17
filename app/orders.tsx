@@ -192,7 +192,7 @@ export default function OrdersScreen() {
                 {item.items.map((cartItem, idx) => (
                   <View key={`${cartItem?.product?.id || idx}-${idx}`} style={tw`relative`}>
                     <Image 
-                      source={{ uri: cartItem?.product?.images?.[0] || 'https://images.unsplash.com/photo-1516257984-b1b4d707412e' }} 
+                      source={cartItem?.product?.images?.[0] ? (typeof cartItem.product.images[0] === 'string' ? { uri: cartItem.product.images[0] } : cartItem.product.images[0]) : { uri: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e' }} 
                       style={tw`w-14 h-14 rounded-2xl bg-gray-50 dark:bg-black border border-gray-100 dark:border-gray-800`}
                     />
                     <View style={tw`absolute -top-1.5 -right-1.5 bg-black dark:bg-white w-5 h-5 rounded-full items-center justify-center border border-white dark:border-[#121212]`}>
@@ -209,7 +209,7 @@ export default function OrdersScreen() {
             firstItem && (
               <View style={tw`flex-row items-center`}>
                 <Image 
-                  source={{ uri: firstItem.product?.images?.[0] || 'https://images.unsplash.com/photo-1516257984-b1b4d707412e' }} 
+                  source={firstItem?.product?.images?.[0] ? (typeof firstItem.product.images[0] === 'string' ? { uri: firstItem.product.images[0] } : firstItem.product.images[0]) : { uri: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e' }} 
                   style={[tw`w-16 h-16 rounded-2xl border`, tw`${themeBorder}`]}
                 />
                 <View style={tw`ml-4 flex-1`}>
@@ -427,7 +427,7 @@ export default function OrdersScreen() {
               <View key={`${item?.product?.id || idx}-${idx}`}>
                 <View style={tw`flex-row py-3`}>
                   <Image 
-                    source={{ uri: item?.product?.images?.[0] || 'https://images.unsplash.com/photo-1516257984-b1b4d707412e' }} 
+                    source={item?.product?.images?.[0] ? (typeof item.product.images[0] === 'string' ? { uri: item.product.images[0] } : item.product.images[0]) : { uri: 'https://images.unsplash.com/photo-1516257984-b1b4d707412e' }} 
                     style={[tw`w-16 h-16 rounded-2xl border`, tw`${themeBorder}`]}
                   />
                   <View style={tw`ml-4 flex-1`}>

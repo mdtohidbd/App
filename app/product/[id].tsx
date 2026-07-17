@@ -74,7 +74,7 @@ export default function ProductDetailsScreen() {
         {/* Image Slider */}
         <View style={[tw`relative bg-gray-50 dark:bg-[#111]`, { height: height * 0.45 }]}>
           <Image 
-            source={{ uri: product.images[imgIdx] }} 
+            source={typeof product.images[imgIdx] === 'string' ? { uri: product.images[imgIdx] } : product.images[imgIdx]} 
             style={tw`w-full h-full`} 
             resizeMode="cover"
           />
@@ -103,7 +103,7 @@ export default function ProductDetailsScreen() {
                 onPress={() => setImgIdx(i)}
                 style={tw`h-12 w-12 rounded-[12px] border-2 overflow-hidden bg-white/50 ${i === imgIdx ? 'border-black dark:border-white' : 'border-transparent'}`}
               >
-                <Image source={{ uri: img }} style={tw`w-full h-full`} resizeMode="cover" />
+                <Image source={typeof img === 'string' ? { uri: img } : img} style={tw`w-full h-full`} resizeMode="cover" />
               </TouchableOpacity>
             ))}
           </View>

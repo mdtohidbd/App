@@ -1,7 +1,7 @@
 
 
 # Project Memory — App
-> 33 notes | Score threshold: >40
+> 34 notes | Score threshold: >40
 
 ## Safety — Never Run Destructive Commands
 
@@ -24,14 +24,14 @@
 
 ## Project Standards
 
-- Extract repeated class patterns into components
-- Use responsive prefixes consistently (sm:, md:, lg:, xl:)
-- Don't use arbitrary values when a utility class exists
+- Index Firestore queries for performance
+- Use batch writes for multiple document updates
 - Use Suspense and Error Boundaries for async operations
 - Don't prop-drill more than 2 levels — use Context or state management
 - Use useMemo for expensive computations, useCallback for stable references
 - Enable strict mode in tsconfig.json
 - Prefer Array methods (map, filter, reduce) over manual loops
+- Use template literals for string interpolation, not concatenation
 
 ## Verified Best Practices
 

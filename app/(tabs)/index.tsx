@@ -266,7 +266,7 @@ export default function HomeScreen() {
               renderItem={({ item }) => (
                 <View style={[tw`px-5`, { width }]}>
                   <View style={tw`relative h-48 rounded-[28px] overflow-hidden bg-gray-900 shadow-md`}>
-                    <Image source={{ uri: item.img }} style={tw`absolute inset-0 w-full h-full opacity-85`} />
+                    <Image source={typeof item.img === 'string' ? { uri: item.img } : item.img} style={tw`absolute inset-0 w-full h-full opacity-85`} />
                     <View style={tw`absolute inset-0 bg-black/35 p-6 flex-col justify-end`}>
                       <View style={tw`bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full self-start mb-3 border border-white/25`}>
                         <Text style={tw`text-[9px] font-bold text-white tracking-widest uppercase`}>Featured</Text>
@@ -321,7 +321,7 @@ export default function HomeScreen() {
                     tw`h-16 w-16 rounded-[22px] overflow-hidden mb-2 border items-center justify-center shadow-sm`,
                     tw`${themeCard} ${themeBorder}`
                   ]}>
-                    <Image source={{ uri: c.img }} style={tw`w-full h-full opacity-95`} />
+                    <Image source={typeof c.img === 'string' ? { uri: c.img } : c.img} style={tw`w-full h-full opacity-95`} />
                     <View style={tw`absolute inset-0 bg-black/10`} />
                   </View>
                   <Text style={[tw`text-xs font-bold`, tw`${themeTextPrimary}`]}>{c.name}</Text>

@@ -11,7 +11,7 @@ export type Product = {
   category: string;
   colors: string[];
   sizes: string[];
-  images: string[];
+  images: any[];
   description: string;
   badge?: "NEW" | "SALE" | "HOT";
 };
@@ -19,7 +19,7 @@ export type Product = {
 const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`;
 
 export const categories = [
-  { id: "world-cup", name: "World Cup", img: Image.resolveAssetSource(require('@/assets/images/world_cup_category.png')).uri },
+  { id: "world-cup", name: "World Cup", img: require('@/assets/images/world_cup_category.png') },
   { id: "men", name: "Men", img: u("photo-1516257984-b1b4d707412e") },
   { id: "women", name: "Women", img: u("photo-1485231183945-fffde7cc051e") },
   { id: "shoes", name: "Shoes", img: u("photo-1542291026-7eec264c27ff") },
@@ -98,13 +98,13 @@ export const banners = [
     id: "b10",
     title: "Argentina '26 Kit",
     subtitle: "Official A+ Grade World Cup Jersey",
-    img: Image.resolveAssetSource(require('@/assets/images/argentina_jersey.png')).uri,
+    img: require('@/assets/images/argentina_jersey.png'),
   },
   {
     id: "b11",
     title: "Brazil '26 Kit",
     subtitle: "Experience the Samba Flair",
-    img: Image.resolveAssetSource(require('@/assets/images/brazil_jersey.png')).uri,
+    img: require('@/assets/images/brazil_jersey.png'),
   },
 ];
 
@@ -330,7 +330,7 @@ export const products: Product[] = [
     colors: ["#75aadb", "#ffffff"],
     sizes: ["S", "M", "L", "XL", "XXL"],
     images: [
-      Image.resolveAssetSource(require('@/assets/images/argentina_jersey.png')).uri,
+      require('@/assets/images/argentina_jersey.png'),
       u("photo-1579952363873-27f3bade9f55"),
     ],
     description: "Official A+ Grade Argentina Home Jersey. Premium moisture-wicking fabric for peak performance on and off the pitch.",
@@ -347,7 +347,7 @@ export const products: Product[] = [
     colors: ["#fedd00", "#009c3b"],
     sizes: ["S", "M", "L", "XL", "XXL"],
     images: [
-      Image.resolveAssetSource(require('@/assets/images/brazil_jersey.png')).uri,
+      require('@/assets/images/brazil_jersey.png'),
       u("photo-1614632537197-38a4705f4ba3"),
     ],
     description: "Official A+ Grade Brazil Home Jersey. Experience the samba flair with authentic design and breathable fit.",
@@ -364,7 +364,7 @@ export const products: Product[] = [
     colors: ["#00008b", "#ffffff"],
     sizes: ["S", "M", "L", "XL"],
     images: [
-      Image.resolveAssetSource(require('@/assets/images/japan_jersey.png')).uri,
+      require('@/assets/images/japan_jersey.png'),
       u("photo-1522778119026-d647f0596c20"),
     ],
     description: "Highly sought-after Japan Special Edition A+ Jersey featuring origami-inspired patterns. A true collector's item.",
@@ -381,7 +381,7 @@ export const products: Product[] = [
     colors: ["#c1272d", "#006233"],
     sizes: ["S", "M", "L", "XL"],
     images: [
-      Image.resolveAssetSource(require('@/assets/images/morocco_jersey.png')).uri,
+      require('@/assets/images/morocco_jersey.png'),
       u("photo-1614632537197-38a4705f4ba3"),
     ],
     description: "Official A+ Grade Morocco Home Jersey. Represent the Atlas Lions with this premium breathable kit.",
